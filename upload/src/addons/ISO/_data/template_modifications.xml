@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="message_macros" modification_key="iso_message_macros" description="Adds a link to the user's ISO." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="$extras.custom_fields">]]></find>
+    <replace><![CDATA[<div>
+	<a href="index.php?search/search&title_only=0&keywords=&search_type=post&c[thread]={$post.thread_id|number}&c[users]={$user.username|string}">{{ phrase('iso_link_title') }}{$user.username|string}</a>
+</div>
+<xf:if is="$extras.custom_fields">]]></replace>
+  </modification>
+  <modification type="public" template="search_result_post" modification_key="iso_search_result_post" description="Replaces the snippet with bb_code method." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<div class="contentRow-snippet">{{ snippet($post.message, 300, {'term': $options.term, 'stripQuote': true}) }}</div>]]></find>
+    <replace><![CDATA[<div class="contentRow">{{ bb_code($post.message, 'post', $post) }}</div>]]></replace>
+  </modification>
+  <modification type="public" template="search_result_thread" modification_key="iso_search_result_thread" description="Replaces the snippet with bb_code method." execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<div class="contentRow-snippet">{{ snippet($thread.FirstPost.message, 300, {'term': $options.term, 'stripQuote': true}) }}</div>]]></find>
+    <replace><![CDATA[<div class="contentRow">{{ bb_code($thread.FirstPost.message, 'post', $thread.FirstPost) }}</div>]]></replace>
+  </modification>
+</template_modifications>
