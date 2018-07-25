@@ -3,7 +3,7 @@
   <modification type="public" template="message_macros" modification_key="iso_message_macros" description="Adds a link to the user's ISO." execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<xf:if is="$extras.custom_fields">]]></find>
     <replace><![CDATA[<div>
-	<a href="index.php?search/search&title_only=0&keywords=&search_type=post&c[thread]={$post.thread_id|number}&c[users]={$user.username|string}">{{ phrase('iso_link_title') }}{$user.username|string}</a>
+	<a href="index.php?search/search&title_only=0&keywords=&search_type=post&c[thread]={$post.thread_id}&c[users]={$user.username}">{{ phrase('iso_link_title') }}{$user.username}</a>
 </div>
 <xf:if is="$extras.custom_fields">]]></replace>
   </modification>
