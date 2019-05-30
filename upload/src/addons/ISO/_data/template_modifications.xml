@@ -5,6 +5,13 @@
     <replace><![CDATA[<div class="message-attribution-opposite">
 <a href="{{ link('search/search', $thread, {'title_only': 0, 'keywords': '', 'search_type': 'post', 'c': {'thread': $thread.thread_id, 'users': $post.User.username}}) }}">{{ phrase('iso_link_title') }}</a>]]></replace>
   </modification>
+  <modification type="public" template="post_macros" modification_key="iso_post_macros_list" description="Adds the ISO button to the post if it has a list." execution_order="11" enabled="1" action="str_replace">
+    <find><![CDATA[<ul class="message-attribution-opposite message-attribution-opposite--list">]]></find>
+    <replace><![CDATA[<ul class="message-attribution-opposite message-attribution-opposite--list">
+<li>
+	<a href="{{ link('search/search', $thread, {'title_only': 0, 'keywords': '', 'search_type': 'post', 'c': {'thread': $thread.thread_id, 'users': $post.User.username}}) }}">{{ phrase('iso_link_title') }}</a>
+</li>]]></replace>
+  </modification>
   <modification type="public" template="search_result_post" modification_key="iso_search_result_post" description="Replaces the snippet with bb_code method." execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<div class="contentRow-snippet">{{ snippet($post.message, 300, {'term': $options.term, 'stripQuote': true}) }}</div>]]></find>
     <replace><![CDATA[<div class="contentRow">{{ bb_code($post.message, 'post', $post) }}</div>]]></replace>
