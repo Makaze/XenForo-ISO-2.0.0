@@ -9,7 +9,7 @@
     <find><![CDATA[<ul class="message-attribution-opposite message-attribution-opposite--list">]]></find>
     <replace><![CDATA[<ul class="message-attribution-opposite message-attribution-opposite--list">
 <li>
-	<a href="{{ link('search/search', $thread, {'title_only': 0, 'keywords': '', 'search_type': 'post', 'c': {'thread': $thread.thread_id, 'users': $post.User.username}}) }}">{{ phrase('iso_link_title') }}</a>
+	<a href="/index.php?search/search&title_only=0&keywords=&search_type=post&c[thread]={$thread.thread_id}&c[users]={$post.User.username}">{{ phrase('iso_link_title') }}</a>
 </li>]]></replace>
   </modification>
   <modification type="public" template="search_result_post" modification_key="iso_search_result_post" description="Replaces the snippet with bb_code method." execution_order="10" enabled="1" action="str_replace">
