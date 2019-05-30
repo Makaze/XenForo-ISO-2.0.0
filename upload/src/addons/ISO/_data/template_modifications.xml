@@ -3,7 +3,7 @@
   <modification type="public" template="post_macros" modification_key="iso_post_macros" description="Adds a link to the user's ISO." execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<div class="message-attribution-opposite">]]></find>
     <replace><![CDATA[<div class="message-attribution-opposite">
-<a href="{{ link('search/search', $thread, {'title_only': 0, 'keywords': '', 'search_type': 'post', 'c': {'thread': $thread.thread_id, 'users': $post.User.username}}) }}">{{ phrase('iso_link_title') }}test</a>]]></replace>
+<a href="{{ link('search/search', $thread, {'title_only': 0, 'keywords': '', 'search_type': 'post', 'c': {'thread': $thread.thread_id, 'users': $post.User.username}}) }}">{{ phrase('iso_link_title') }}</a>]]></replace>
   </modification>
   <modification type="public" template="search_result_post" modification_key="iso_search_result_post" description="Replaces the snippet with bb_code method." execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<div class="contentRow-snippet">{{ snippet($post.message, 300, {'term': $options.term, 'stripQuote': true}) }}</div>]]></find>
